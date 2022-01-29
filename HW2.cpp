@@ -51,6 +51,9 @@ int findSum(int start, const std::vector<int>& vec){
     if(vec[start] + vec[start+2] > vec[start+1] + vec[start+3]){
       return vec[start] + findSum(start+2, vec);
     }
+    else{
+      return vec[start+1] + findSum(start+3, vec);
+    }
   }
 }
 
