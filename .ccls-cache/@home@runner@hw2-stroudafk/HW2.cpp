@@ -25,36 +25,15 @@ int countFives(int num) {
  */
 
 int findSum(int start, const std::vector<int>& vec){
-  if(vec.size()-start == 1){
+  //am I missing the edge case where the vector is size 1?
+  if(start >= vec.size()){
     return 0;
   }
-  else if(vec.size()-start == 2){
-    return vec[start];
-  }
-  else if(vec.size()-start == 3){
-    if(vec[start+1] < vec[start]){
-      return vec[start];
-    }
-    else{
-      return vec[start+1];
-    }
-  }
-  else if(vec.size()-start == 4){
-    if(vec[start+1] > (vec[start]+vec[start+2])){
-      return vec[start+1];
-    }
-    else{
-      return vec[start]+vec[start+2];
-    }
-  }
-  else{
-    if(vec[start] + vec[start+2] > vec[start+1] + vec[start+3]){
-      return vec[start] + findSum(start+2, vec);
-    }
-    else{
-      return vec[start+1] + findSum(start+3, vec);
-    }
-  }
+  if(vec[start]+findSum(start+2, vec) > findSum(start+1, vec))
+   return vec[start]+findSum(start+2, vec);
+  else 
+    return findSum(start+1, vec);
+  
 }
 
 int pickTrees(const std::vector<int>& vec) {
