@@ -1,0 +1,54 @@
+### EXAMPLE QUESTION: ###
+
+What’s the best case, worst case, and average case runtime of binarySearch? What is the worst case space complexity? Remember to justify your answer, provide a tight upper bound, and to define n.
+
+int binarySearch(const std::vector<int>& vec, int target) {
+  int left = 0;
+  int right = vec.size() - 1;
+  while (left <= right) {
+    int mid = (left + right) / 2;
+    if (vec[mid] < target) {
+      left = mid + 1;
+    } else if (vec[mid] > target) {
+      right = mid - 1;
+    } else {
+      return mid;
+    }
+  }
+  return -1;
+}
+
+(Side note: being able to produce the code snippet above character-by-character would be great practice to improve your coding ability).
+
+
+### EXAMPLE ANSWER: ###
+
+Best case is O(1), when we only need to iterate through the while loop once
+and find the target right away. In order for that to happen, the input vector
+must always have the target value as the midpoint element. For example,
+
+        binarySearch({1, 2, 3, 4, 5}, 3)
+
+We can create arbitrarily long input vectors as long as the following is true
+about the vector: vec[(vec.size() - 1) / 2] = target.
+
+The worst case runtime is O(log(n)), where n is the size of the vector.
+In this case, we'll want to iterate through the while loop as many times as
+possible, cutting the distance between left and right down by half each
+time until left > right. We can make this happen by introducing a target
+that's smaller than the smallest element in vec, such as
+
+        binarySearch({1, 2, 3, 4, 5}, 0)
+
+Since the search area is halved each time, we'll run the while loop ~log(n)
+times, and since we do constant work within that while loop, the overall
+runtime is O(1) * log(n) = O(log(n)).
+
+The average case is similar to the worst case, since the typical case will
+also include cases where you do not find the element and have to search
+through the vector. There's math that would be required to calculate the
+average case for when the element is within the vector, but we will "hand
+wave" and say that in the case where the target is within the vector, it'll
+take on order of log(n) steps to find it.
+
+For space complexity, the worst case is O(1) as we are only using a constant amount of space by creating some variables. We are not creating any new data structures which contain data proportional to the size of the input, nor building up a recursive call stack at any point.
