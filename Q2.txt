@@ -1,0 +1,5 @@
+Variable: n, where n is the input number 'z'
+
+This function's time complexity works similarly to Q1, but in base 10, O(logn). It may seem odd to compare with that question because one is multiplying to change the 'counter', and the other is dividing, but the effect is the same since Q2 has a while loop that gauges the end result after decreasing the conditional number rather than gauging the result after increasing the conditional number as with Q1. It's the same idea sime the time complexity comes from the rate at which the distance between the stopping number, and it doesn't matter if it approaches from the right or left.
+
+There is a difference in space complexity however, since at every iteration, this while loop also adds the increments to a vector. The space and time complexity are both O(logn) in base 10.

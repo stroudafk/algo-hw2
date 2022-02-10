@@ -1,0 +1,16 @@
+Q4.A
+Variables: n, where n is the input p
+
+For this question, the worst case is if p is odd, because the base case for odd p parameters will keep that variable odd as long as it can. The best case for this function, is not if p is even, but if some number x is an integer, and p = 2^x (ex. 2, 4, 8, 16, 32, 64, 128...). The best case time complexity is O(logn), and the worst case time complexity is O(n). Average case would be (n + logn)/2.
+
+Elaboration: Best case 'p' values will make 3 comparisons for the if statements, then one assignment and an additional multiplication operation which makes for 5 operations in that iteration. That number will not change, so a scalar multiple 5 * logn, which would be simplified to logn.
+
+The worst case 'p' values will make 3 comparisons as well for each if, and then an additional 2 multiplication operations for a total of 5 per iteration as well. This number will also not change, so the full (to the best of my ability) unsimplified time complexity would be roughly 5 * n/2. This value would be simplified to n.
+
+At the risk of being wrong and losing points for that(?): Here, the only new memory being allocated is one temp variable, and the other 'copies' from the recursive call stack. So I believe this simplifies to the depth of the recursive call stack (or in this case the time complexity).
+
+Q4.B
+
+The one line I would change is the return statement of the odd cases to make one multiplication of b, and decrease the 'p' parameter in the next call by one, so that this will correct to an even parameter, and giving it a better chance of p becoming the best case for the remaining iterations.
+
+ex return b * pow(b, p-2)

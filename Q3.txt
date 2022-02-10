@@ -1,0 +1,7 @@
+Variable: n, where n is the input 'n'
+
+The best and worst cases here are determined by the distance to the right side of a multiple of seven, unless n is negative, in which case it would be the distance from the left side of a multiple of seven.
+
+Important to note that this is based off of the position of the input relative to a multiple of seven, and not the magnitude of the input itself.
+
+The maximum number of iterations is 7, and the minimum number of iterations is 1. Since this is recursive and does not allocate any more space than the function parameter (?), both the time and space complexities are O(1) because the worst case 7 is a constant scalar.

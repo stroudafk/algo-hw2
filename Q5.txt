@@ -1,0 +1,16 @@
+Q5.A
+[8,1] = 0
+[3, 8, 2, 10] = 8
+
+Given a set of numbers as a vector, find the maximum difference between two elements, where the smaller of the two elements must occur first (referring to indices).
+
+Q5.B
+My idea was to lay down the ground rules first. I must 'buy' before 'selling'. The set of numbers will always have at least one element, and each element will always be nonnegative. Since I don't need to know where the days were, or what the max and min value valid set was, I concluded that in order to decide if the next number will get me a better result, all I need to know is if this is the new minimum, and if this new minimum and the current number will yield me a better profit. Additionally, I start the profit off as 0 so that in the case that there is no maximum profit, my return value is correct without any additional checks. Lastly, I set the minimum to be the first element, because at the start of the vector, the first element will always be the minimum value encountered so far. To prevent from accidentally double counting element 0, I started my loop at 1.
+
+Q5.C
+Where my variable is n, the size of the array:
+
+Since no matter what the entire set of days has to be looked at, the best and worst case scenarios are the same, since we can't stop once we've found the max profit unless we're sure there is no other better set of days. The time complexity is O(n).
+
+My space complexity is constant (only declare a minimum value and a maximum profit), so it is O(1).
+

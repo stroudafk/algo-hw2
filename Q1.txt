@@ -1,0 +1,7 @@
+Variable: n, where n is the value of the input 'n'
+
+First, I take note of 2 big ideas: how many loops are in the function/algorithm, and how many operations occur inside the algorithm (and further, are there any conditionals that would alter the end result). I know that there is only one loop here, and it has a finite number of iterations, which is reinforced by the rate of change (technically it could be an oscillating series). No new space is being allocated inside the loop, so we can safely say that no matter how many times it runs, the space complexity is O(1), and no bigger or smaller. 
+
+We assume base 2 in CS algorithm analysis, and for every iteration, the distance between the stopping magnitude and the current value is halved. Because the for loop starts at 1 rather than zero, this function's time complexity is O(logn).
+
+The worst and best case appear to be the same since the only changing factor here is the input. 
